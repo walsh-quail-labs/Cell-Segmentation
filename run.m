@@ -1,9 +1,8 @@
-    clear all;
+clear all;
 clc;
 addpath(genpath('Lib'))
 config_file_path = 'config_data.csv';
 [~,configFileName,~] = fileparts(config_file_path);
-
 CSVData = importdata(config_file_path);
 k = strfind(CSVData{1},'input_folder');
 input_folder = extractBetween(CSVData{1},k+length('input_folder')+1,length(CSVData{1}));

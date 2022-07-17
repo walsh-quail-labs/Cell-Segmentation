@@ -4,10 +4,9 @@ function allSegBoundaries=nucleiSegmentationPerScale_CNN_all_at_once(result,Wind
 
 result = im2double(result);
 inputSize = size(result);
-finalMask = true(size(result));
 allSegBoundaries = [];
-if exist(fullfile('Lib','DSB_2018-master','val','stage1_test'),'dir')
-    rmdir(fullfile('Lib','DSB_2018-master','val','stage1_test'),'s')
+if exist(fullfile('Lib','MaskRCNN','val','stage1_test'),'dir')
+    rmdir(fullfile('Lib','MaskRCNN','val','stage1_test'),'s')
 end
 
 
@@ -34,9 +33,8 @@ for i = 1 : numW
         I = resultPadded(stX:endX,stY:endY);
         I = cat(3,I,I,I);
         Iout = im2double(I);
-        mkdir(fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images'));
-        imwrite(Iout,fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
-%         all_starts_ends{image_grid_counter} = [stX,stY,endX,endY];
+        mkdir(fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images'));
+        imwrite(Iout,fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
         image_grid_counter = image_grid_counter + 1;
     end
 end
@@ -50,8 +48,8 @@ for i = 1 : numW-1
         I = resultPadded(stX:endX,stY:endY);
         I = cat(3,I,I,I);
         Iout = im2double(I);
-        mkdir(fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images'));
-        imwrite(Iout,fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
+        mkdir(fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images'));
+        imwrite(Iout,fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
 %         all_starts_ends{image_grid_counter} = [stX,stY,endX,endY];
         image_grid_counter = image_grid_counter + 1;
     end
@@ -66,8 +64,8 @@ for i = 1 : numW
         I = resultPadded(stX:endX,stY:endY);
         I = cat(3,I,I,I);
         Iout = im2double(I);
-        mkdir(fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images'));
-        imwrite(Iout,fullfile('Lib','DSB_2018-master','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
+        mkdir(fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images'));
+        imwrite(Iout,fullfile('Lib','MaskRCNN','val','stage1_test',num2str(image_grid_counter),'images',strcat(num2str(image_grid_counter),'.png')));
 %         all_starts_ends{image_grid_counter} = [stX,stY,endX,endY];
         image_grid_counter = image_grid_counter + 1;
     end
@@ -79,13 +77,13 @@ numPatches = image_grid_counter-1;
 % run the Neural Network
 % remove extra folders
 try
-if exist(fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder'),'dir')
-    rmdir(fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder'),'s')
+if exist(fullfile('Lib','MaskRCNN','results','nucleus','submit_folder'),'dir')
+    rmdir(fullfile('Lib','MaskRCNN','results','nucleus','submit_folder'),'s')
 end
 catch
 end
 cd Lib
-cd DSB_2018-master
+cd MaskRCNN
 system('source startup.sh')
 cd ..
 cd ..
@@ -93,7 +91,7 @@ cd ..
 
 
 % read the submit file 
-submit_file = fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder','submit.csv');
+submit_file = fullfile('Lib','MaskRCNN','results','nucleus','submit_folder','submit.csv');
 [C1,C2] = csvimport( submit_file, 'columns', [1, 2],'noHeader', true);
 C1 = C1(2:end);
 C2 = C2(2:end);
