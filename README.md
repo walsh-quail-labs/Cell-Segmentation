@@ -13,5 +13,13 @@ To be able to run the cell segmentation framework, one needs the following:
 
 
 ## Usage
-As our system is a hybrid model, you need to first create a python virtual environment (our working version of python is 3.7.9) where you can install all the required packages. Let us imagine you are using conda platform to create your virtual environment. These are the steps you need to follow. 
+As our system is a hybrid model, you need to first create a python virtual environment (our working version of python is 3.7.9) where you can install all the required packages. Let us imagine you are using the conda platform to create your virtual environment. These are the steps you need to follow. 
 
+This section is done on a terminal window.
+
+First, let us create the virtual environment:
+
+`conda create -n circle_virtual_environment python=3.9
+`
+
+Then you need to install all the requirements within the MaskRCNN. For simplicity, we are providing just the nucleus.py example code from the MaskRCNN repo (available [here](https://github.com/matterport/Mask_RCNN/)).
