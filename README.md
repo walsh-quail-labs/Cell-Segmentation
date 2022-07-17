@@ -22,4 +22,4 @@ First, let us create the virtual environment:
 `conda create -n circle_virtual_environment python=3.9
 `
 
-Then you need to install all the requirements within the MaskRCNN. For simplicity, we are providing just the nucleus.py example code from the MaskRCNN repo (available [here](https://github.com/matterport/Mask_RCNN/)).
+Then you need to install all the requirements within the MaskRCNN. For simplicity of the repo, we are providing just the code snippets that are needed for inference from the MaskRCNN repo (available [here](https://github.com/matterport/Mask_RCNN/)).
