@@ -1,6 +1,6 @@
 # Cell-Segmentation
 
-The cell segmentation framework presented here is just for the review purpose. 
+The cell segmentation framework presented here is just for review purposes. 
 
 
 ## Requirements
@@ -22,6 +22,10 @@ First, let us create the virtual environment:
 `conda create -n circle_virtual_environment python=3.9
 `
 
+Next, you need to activate the virtual environment:
+
+`conda activate circle_virtual_environment `
+
 Then you need to install all the requirements within the MaskRCNN. For simplicity of the repo, we are providing just the code snippets that are needed for inference from the MaskRCNN repo (available [here](https://github.com/matterport/Mask_RCNN/)).
 
 
@@ -35,4 +39,6 @@ and then
 
 Once you have the `circle_virtual_environment` ready, you can run the code. To run the code, you can easily set up your sample image file in `demo.m` (in the main directory) and then run it. 
 
-Please note that we are providing scripts for batch processes (to run on a whole folder), which is the `run.m` script. Line 4 of the `run.m`, provides the path to a configuration file where the user can set up the input and output path in a CSV file easily. 
+Please note that we are providing scripts for batch processes (to run on a whole folder), which is the `run.m` script. Line 4 of the `run.m` provides the path to a configuration file where the user can easily set up the input and output path in a CSV file. 
+
+Please remember that the weights for the deep learning model are available for download from the link [here](https://drive.google.com/file/d/1C3jcOiDjyMAtvB9SsxKDQGMfnbkOwXyW/view?usp=sharing). You need to put this file (.h5 file) inside the MaskRCNN folder ([~/Cell-Segmentation/Lib/MaskRCNN]()). 
