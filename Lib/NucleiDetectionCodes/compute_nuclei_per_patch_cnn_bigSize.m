@@ -2,8 +2,8 @@ function [seg,myMask] = compute_nuclei_per_patch_cnn_bigSize(stX,stY,endX,endY,r
 Iorig = result(stX:endX,stY:endY);
 myMask = zeros(size(Iorig));
 seg = zeros(size(Iorig));
-mkdir(fullfile('Lib','DSB_2018-master','val','stage1_test','1','images'));
-write_path = fullfile('Lib','DSB_2018-master','val','stage1_test','1','images','1.png');
+mkdir(fullfile('Lib','MaskRCNN','val','stage1_test','1','images'));
+write_path = fullfile('Lib','MaskRCNN','val','stage1_test','1','images','1.png');
 Ios = Iorig;
 cell_counter = 0;
 num_rep = 1 ;
@@ -29,13 +29,13 @@ while num_rep < 10 && total_added > 2 && mean(mean(mean(Ios))) > 0.001
     
     try 
     % run the deep net code
-    if exist(fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder'),'dir')
-        rmdir(fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder'),'s')
+    if exist(fullfile('Lib','MaskRCNN','results','nucleus','submit_folder'),'dir')
+        rmdir(fullfile('Lib','MaskRCNN','results','nucleus','submit_folder'),'s')
     end
     catch 
     end
     cd Lib
-    cd DSB_2018-master
+    cd MaskRCNN
     
     system('source startup.sh')
     cd ..
@@ -44,7 +44,7 @@ while num_rep < 10 && total_added > 2 && mean(mean(mean(Ios))) > 0.001
     
     
     total_added = 0;    
-    submit_file = fullfile('Lib','DSB_2018-master','results','nucleus','submit_folder','submit.csv');
+    submit_file = fullfile('Lib','MaskRCNN','results','nucleus','submit_folder','submit.csv');
     [~,C2] = csvimport( submit_file, 'columns', [1, 2],'noHeader', true);
     C2 = C2(2:end);    
     numBoundaries = length(C2);

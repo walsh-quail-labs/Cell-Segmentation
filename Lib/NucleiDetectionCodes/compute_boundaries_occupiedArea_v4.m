@@ -62,10 +62,7 @@ for i = 1 : N
         
     end
 end
-% toBeRemoved = setdiff(toBeRemoved,toBeKept);
 
-disp('3')
-% Reverse Cuthill-McKee ordering
 r = fliplr(symrcm(affinity_matrix));
 
 % Get the clusters

@@ -23,3 +23,16 @@ First, let us create the virtual environment:
 `
 
 Then you need to install all the requirements within the MaskRCNN. For simplicity of the repo, we are providing just the code snippets that are needed for inference from the MaskRCNN repo (available [here](https://github.com/matterport/Mask_RCNN/)).
+
+
+Next, you need to change the directory where the repo is downloaded inside the MaskRCNN directory and install all the required packages. 
+
+`cd [path_to_where_the_repo_is_downloaded]\Lib\MaskRCNN`
+
+and then
+
+`pip install -r requirements.txt`
+
+Once you have the `circle_virtual_environment` ready, you can run the code. To run the code, you can easily set up your sample image file in `demo.m` (in the main directory) and then run it. 
+
+Please note that we are providing scripts for batch processes (to run on a whole folder), which is the `run.m` script. Line 4 of the `run.m`, provides the path to a configuration file where the user can set up the input and output path in a CSV file easily. 
