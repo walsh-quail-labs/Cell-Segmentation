@@ -2,7 +2,7 @@
 
 The cell segmentation framework presented here is just for review purposes. 
 
-<img src='img_src/example.png' width=60%> 
+<img src='img_src/example.png' width=80%> 
 
 
 ## Requirements
