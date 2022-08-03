@@ -2,6 +2,8 @@
 
 The cell segmentation framework presented here is just for review purposes. 
 
+<img src='img_src/example.png' width=60%> 
+
 
 ## Requirements
 To be able to run the cell segmentation framework, one needs the following:
